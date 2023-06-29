@@ -1,8 +1,9 @@
 'use strict'
 
-const mongoose = require("mongoose");
 
-const connectStr = 'mongodb://localhost:27017/testdb';
+const mongoose = require("mongoose");
+const {db: {host, name, port}} = require("../configs/config.mongodb");
+const connectStr = `mongodb://${host}:${port}/${name}`;
 const { countConnect } = require("../helpers/check.connect");
 
 
@@ -22,6 +23,7 @@ class Database {
             family: 4 // Use IPv4, skip trying IPv6
         }
 
+        console.log("connect db ", connectStr);
         mongoose.connect(connectStr, options).then(_ => {
             console.log("connect mongo successed PRO", countConnect());
         }).catch(err =>
