@@ -11,16 +11,18 @@ app.use(morgan("dev"));
 app.use(compression());
 
 require("./dbs/init.mongodb");
-console.log('Process ', process.env);
-const { checkOverLoad } = require("./helpers/check.connect");
+//console.log('Process ', process.env);
+//const { checkOverLoad } = require("./helpers/check.connect");
 // checkOverLoad();
 
-app.get("/", (req, resp, next) => {
+// app.get("/", (req, resp, next) => {
+//     const str = "abc";
+//     return resp.status(200).json({
+//         message: "OK",
+//         metadata: str.repeat(10)
+//     })
+// })
 
-    const str = "abc";
-    return resp.status(200).json({
-        message: "OK",
-        metadata: str.repeat(10)
-    })
-}) 
+
+app.use('/', require("./routes"))
 module.exports = app

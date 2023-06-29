@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-const connectStr = 'mongodb://localhost:27017/testdb';
+const connectStr = 'mongodb://localhost:27017/shop';
 
 const options = {
   useNewUrlParser: true,
