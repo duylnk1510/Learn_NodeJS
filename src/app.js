@@ -3,6 +3,10 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const app = express();
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: true
+}))
 require('dotenv').config();
 
 //init middlewares
